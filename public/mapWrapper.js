@@ -1,13 +1,13 @@
 var MapWrapper = function(container, coords, zoom){
-  this.openweathermap = new openweathermap.maps.Map(container,{
+  this.googleMap = new google.maps.Map(container,{
     center: coords,
     zoom: zoom
   });
 }
 
-Mapwrapper.prototype = function(argument){
+MapWrapper.prototype = {
   addMarker: function(coords){
-    var marker = google.maps.Marker({
+    var marker = new google.maps.Marker({
       position: coords,
       map: this.googleMap,
       animation: google.maps.Animation.DROP
@@ -25,7 +25,7 @@ Mapwrapper.prototype = function(argument){
   addInfoWindow: function(coords, text){
     var marker = this.addMarker(coords);
     marker.addListener('click', function(){
-      var infoWindow = new google.mpas.InfoWindow({
+      var infoWindow = new google.maps.InfoWindow({
         content: text
       });
       infoWindow.open(this.map, marker);

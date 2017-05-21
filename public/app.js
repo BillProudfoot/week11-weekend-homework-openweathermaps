@@ -1,4 +1,4 @@
-var initialize = function{
+var initialize = function(){
   var mapDiv = document.getElementById('main-map');
   var londonButton = document.querySelector('#london-button');
   var localButton = document.querySelector('#local-button');
@@ -12,7 +12,7 @@ var initialize = function{
 
   var goToLondon = function(){
     var london = { lat: 51.5074, lng: 0.1278 };
-    mainMap.openweathermap.setCenter(london);
+    mainMap.googleMap.setCenter(london);
     mainMap.addInfoWindow(london, "<h3>London</h3>");
   }
 
@@ -21,7 +21,7 @@ var initialize = function{
   }
 
   londonButton.addEventListener('click', goToLondon);
-  whereAmIButton.addEventListener('click', findLocation);
+  localButton.addEventListener('click', findLocation);
 }
 
 window.addEventListener('load', initialize);
